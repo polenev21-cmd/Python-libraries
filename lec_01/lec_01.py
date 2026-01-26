@@ -247,4 +247,6 @@ a1=a.reshape(1, 12)
 print(a1, a1.shape, a1.ndim)
 
 a2=a[np.newaxis, :]
+
 print(a2, a2.shape, a2.ndim)
+
