@@ -13,7 +13,7 @@ print(x[[2,0,1],2])
 #срезы
 print(x[1:])
 
-print(x[1:[2,0,1]])
+#print(x[1:[2,0,1]])
 
 #маскирование
 mask=np.array([1,0,1,0],dtype=bool)
@@ -22,7 +22,7 @@ print(mask.shape)
 
 row=np.array([0,1,2])
 
-print(x[row[:,np.newaxis].shape,mask])
+#print(x[row[:,np.newaxis].shape,mask])
 
 
 mask=np.array([1,0,1,0],dtype=bool)
@@ -38,7 +38,7 @@ print(x[row[:, np.newaxis],mask])
 
 rng=np.random.default_rng(seed=1)
 x=rng.multivariate_normal([0,0],[[1,2],[2,5]], 100)
-print(x.share)
+print(x.shape)
 
 import matplotlib.pyplot as plt 
 plt.scatter(x[:,0], x[:,1])
@@ -73,15 +73,15 @@ bins=np.linspace(0,100,11)
 print(bins)
 
 count = np.zeros(10)
-print(counts)
+print(count)
 
 i=np.searchsorted(bins, x)
 print(i[10])
 
-np.add.at(counts, i, 1)
-print(counts)
+np.add.at(count, i, 1)
+print(count)
 
-print(sum(counts))
+print(sum(count))
 
 a=[3,2,3,4,5,6,1,4,65,76,2,1,5]
 print(sorted(a))
@@ -148,7 +148,7 @@ x["mat"] [0] = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print(x)
 
 
-data = [("Ирина", 25, 55), ("Виталий",17 57)]
+data = [("Ирина", 25, 55), ("Виталий",17, 57)]
 
 dtype={"names":("name_", "age_", "weight_"), "formats":("U10","i4", "f8")}
 
