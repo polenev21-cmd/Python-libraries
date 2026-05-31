@@ -4,27 +4,22 @@ from sklearn.datasets import load_iris
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
-iris = load_iris()
-X_iris, Y_iris = iris.data, iris.target
+iris=load_iris()
+X_iris, Y_iris=iris.data, iris.target
 
 """
 X_iris [Длина чашелистника, Ширина чашелистника, Длина лепестка, Ширина лепестка]
 Y_iris [0 - Ирис щетинистый, 1 - Ирис разноцветный, 2 - Ирис виргинский]
 """
 
-X_filtered=X_iris[(Y_iris==0) | (Y_iris==1)]
-Y_filtered=Y_iris[(Y_iris==0) | (Y_iris==1)]
+X_filtered=X_iris[Y_iris!=2]
+Y_filtered=Y_iris[Y_iris!=2]
 
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X_filtered)
+scaler=StandardScaler()
+X_scaled=scaler.fit_transform(X_filtered)
 
 model=PCA(n_components=2)
 x=model.fit_transform(X_scaled)
-
-xx, yy = np.meshgrid(
-    np.linspace(x[:, 0].min(), x[:, 0].max(), 100),
-    np.linspace(x[:, 1].min(), x[:, 1].max(), 100),
-)
 
 x_0=x[Y_filtered==0][:,0]
 y_0=x[Y_filtered==0][:,1]
@@ -33,6 +28,6 @@ y_1=x[Y_filtered==1][:,1]
 
 plt.scatter(x_0, y_0, color="red", alpha=0.5)
 plt.scatter(x_1, y_1, color="blue", alpha=0.5)
+plt.savefig("PCA.jpg")
 
-plt.show()
 
