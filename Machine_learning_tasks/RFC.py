@@ -16,8 +16,7 @@ X_filtered=X_iris[Y_iris!=2][:, 0:2]
 Y_filtered=Y_iris[Y_iris!=2]
 
 X_train, X_test, Y_train, Y_test=train_test_split(
-    X_filtered, Y_filtered, test_size=0.3, random_state=0
-)
+    X_filtered, Y_filtered, test_size=0.3, random_state=0)
 
 model=RandomForestClassifier()
 model.fit(X_train, Y_train)
@@ -25,8 +24,7 @@ y_pred=model.predict(X_test)
 
 xx, yy=np.meshgrid(
     np.linspace(X_filtered[:, 0].min()*0.95, X_filtered[:, 0].max()*1.05, 100),
-    np.linspace(X_filtered[:, 1].min()*0.95, X_filtered[:, 1].max()*1.05, 100),
-)
+    np.linspace(X_filtered[:, 1].min()*0.95, X_filtered[:, 1].max()*1.05, 100))
 
 x_0=X_filtered[Y_filtered==0][:,0]
 y_0=X_filtered[Y_filtered==0][:,1]

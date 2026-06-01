@@ -23,8 +23,7 @@ model.fit(X_scaled)
 
 xx, yy=np.meshgrid(
     np.linspace(X_scaled[:, 0].min()*1.05, X_scaled[:, 0].max()*1.05, 100),
-    np.linspace(X_scaled[:, 1].min()*1.05, X_scaled[:, 1].max()*1.05, 100),
-)
+    np.linspace(X_scaled[:, 1].min()*1.05, X_scaled[:, 1].max()*1.05, 100))
 
 x_0=X_scaled[Y_filtered==0][:, 0]
 y_0=X_scaled[Y_filtered==0][:, 1]
